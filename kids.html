@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            background-color: rgb(233, 248, 252);
+            width: 100%;
+        }
+        .fa {
+  padding: 10px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+        .sidenav {
+            height: 100%;
+            width: 100px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: transparent;
+            overflow-x: hidden;
+            padding-top: 20px;
+            font-weight: 700;
+        }
+
+        .sidenav a {
+            padding: 6px 6px 6px 32px;
+            text-decoration: none;
+            color: rgb(7, 190, 241);
+            display: block;
+            font-size: 19px;
+        }
+
+        .sidenav a:hover {
+            background-color: rgb(237, 213, 107);
+            color: black;
+            width: 100px;
+        }
+        *{
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.row{
+  margin-left: 20%;
+}
+.radio-toolbar {
+  margin: 10px;
+}
+
+.radio-toolbar input[type="radio"] {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+.radio-toolbar label {
+    display: inline-block;
+    background-color: transparent;
+    padding: 10px 10px;
+    font-family: sans-serif, Arial;
+    font-size: 16px;
+    border: 1px solid #444;
+    border-radius: 4px;
+}
+
+.radio-toolbar label:hover {
+  background-color: #dfd;
+}
+.radio-toolbar input[type="radio"]:focus + label {
+    border: 2px dashed #444;
+}
+
+.radio-toolbar input[type="radio"]:checked + label {
+    background-color: rgb(105, 138, 158);
+    border-color: rgb(86, 95, 86);
+}
+.body1 {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+.img1 {
+    float: center ;
+   vertical-align: center;
+    max-width: 100%;
+    max-height: 15%;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 60%;
+  position: relative;
+  margin: 0px;
+  left: 6%;
+}
+
+/* Next & previous buttons */
+ .prev ,.next {
+  cursor: pointer;
+  position: relative;
+  top: 90%;
+  left: 0px;
+  width: 400px;
+  padding: 10px;
+  margin: 60px;
+  color: rgb(240, 179, 179);
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    top: 50%;
+  right: 30px;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: azure;
+  border-radius: 30px;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+h2{
+  font-style: oblique;
+   color: #f5d698;
+   font-size:30px;
+   margin-left:25px ;
+}
+
+  @media (max-width: 768px) {
+    .prev ,.next{
+  padding: 15px;
+  margin: 0px;
+
+}
+
+    .radio-toolbar label {
+      display: inline-block;
+      background-color: transparent;
+      padding: 3px 3px;
+      font-family: sans-serif, Arial;
+      font-size: 12px;
+      border: 1px solid #444;
+      border-radius: 3px;
+    }
+      .sidenav {
+      width: 80px;
+    }
+
+    .sidenav a {
+      padding: 6px 6px 6px 3px;
+      text-decoration: none;
+      color: rgb(7, 190, 241);
+      display: block;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .sidenav a:hover {
+      background-color: rgb(237, 213, 107);
+      color: black;
+      width: 80px;
+    }
+    h2{
+      font-size:15px;
+      margin-right: 25px;
+    }
+
+    
+      
+    }
+        
+    </style>
+</head>
+
+<body>
+    
+    <div class="sidenav">
+        <a href="index.html" target="_blank">sign up</a> <br /><br />
+        <a href="home.html" target="_blank">Home</a> <br /><br />
+        <a href="Men.html" target="_blank">Men </a> <br /><br />
+        <a href="women.html" target="_blank">women</a> <br /><br />
+        <a href="kids.html" target="_blank">kids</a> <br /><br />
+    </div>
+    <div>
+       <center> <div>
+            <div class="slideshow-container" >
+
+              <div class="mySlides fade">
+                <div class="numbertext"></div>
+                <img class="img1" src="slide4.jpg" style="width:100%">
+              </div>
+              
+              <div class="mySlides fade">
+                <img class="img1 " src="slide2.webp" style="width:90%">
+              </div>
+
+              <div class="mySlides fade">
+                <img class="img1" src="slide5.jpg" style="width:100%">
+              </div>
+
+              <div class="mySlides fade">
+                <img class="img1" src="slide3.jpg" style="width:90%">
+              </div>
+              
+              <a class="prev" onclick="plusSlides(-1)">❮</a>
+              <a class="next" onclick="plusSlides(1)">❯</a>
+              <script>
+                let slideIndex = 1;
+                showSlides(slideIndex);
+                
+                function plusSlides(n) {
+                  showSlides(slideIndex += n);
+                }
+                
+                function currentSlide(n) {
+                  showSlides(slideIndex = n);
+                }
+                
+                function showSlides(n) {
+                  let i;
+                  let slides = document.getElementsByClassName("mySlides");
+                  let dots = document.getElementsByClassName("dot");
+                  if (n > slides.length) {slideIndex = 1}    
+                  if (n < 1) {slideIndex = slides.length}
+                  for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";  
+                  }
+                  for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                  }
+                  slides[slideIndex-1].style.display = "block";  
+                  dots[slideIndex-1].className += " active";
+                }
+                </script>
+    </div></center>
+    <div>
+        <center><h2 > welcome to our brain!</h2></center>
+        <div class="row">
+            <div class="column">
+              <img src="kid3.webp"  style="width:100%">
+              <form >
+                <label "><i style="font-size:30px; color:rgb(57, 121, 248)">price <del>120$</del> </i>
+                  <em style="font-size:20px; color:rgb(243, 113, 113)"> 99$ (for limited time)</em> </label><br>
+                 <div class="radio-toolbar">
+
+                 <input type="radio" name="size" value="xs" id="xs1">
+                 <label for="xs1">XS</label>
+                 
+                 <input type="radio" name="size" value="s" id="s1">
+                 <label for="s1">S</label>
+                 
+                 <input type="radio" name="size" value="m" id="m1">
+                 <label for="m1">M</label>
+                 
+                 <input type="radio" name="size" value="l" id="l1">
+                 <label for="l1">L</label>
+                
+                 <input type="radio" name="size" value="xl" id="xl1">
+                 <label for="xl1">XL</label>
+                 </br>
+               </div>
+               </form>
+            </div>
+            <div class="column">
+              <img src="kid12.webp"  style="width:100%">
+              <form >
+                <label "><i style="font-size:30px; color:rgb(57, 121, 248)">price <del>700$</del> </i>
+                  <em style="font-size:20px; color:rgb(243, 113, 113)"> 450$ (for limited time)</em> </label><br>
+                 <div class="radio-toolbar">
+
+                 <input type="radio" name="size" value="xs" id="xs2">
+                 <label for="xs2">XS</label>
+                 
+                 <input type="radio" name="size" value="s" id="s2">
+                 <label for="s2">S</label>
+                 
+                 <input type="radio" name="size" value="m" id="m2">
+                 <label for="m2">M</label>
+                 
+                 <input type="radio" name="size" value="l" id="l2">
+                 <label for="l2">L</label>
+                
+                 <input type="radio" name="size" value="xl" id="xl2">
+                 <label for="xl2">XL</label>
+                 </br>
+               </div>
+               </form>
+            </div>
+            <div class="column">
+              <img src="kid4.webp"  style="width:100%">
+              <form >
+                <label "><i style="font-size:30px; color:rgb(57, 121, 248)">price <del>170$</del> </i>
+                  <em style="font-size:20px; color:rgb(243, 113, 113)"> 129$ (for limited time)</em> </label><br>
+                 <div class="radio-toolbar">
+
+                 <input type="radio" name="size" value="xs" id="xs3">
+                 <label for="xs3">XS</label>
+                 
+                 <input type="radio" name="size" value="s" id="s3">
+                 <label for="s3">S</label>
+                 
+                 <input type="radio" name="size" value="m" id="m3">
+                 <label for="m3">M</label>
+                 
+                 <input type="radio" name="size" value="l" id="l3">
+                 <label for="l3">L</label>
+                
+                 <input type="radio" name="size" value="xl" id="xl3">
+                 <label for="xl3">XL</label>
+                 </br>
+               </div>
+               </form>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column">
+              <img src="kid15.webp"  style="width:100%">
+              <form >
+                <label "><i style="font-size:30px; color:rgb(57, 121, 248)">price <del>120$</del> </i>
+                  <em style="font-size:20px; color:rgb(243, 113, 113)"> 99$ (for limited time)</em> </label><br>
+                 <div class="radio-toolbar">
+
+                 <input type="radio" name="size" value="xs" id="xs4">
+                 <label for="xs4">XS</label>
+                 
+                 <input type="radio" name="size" value="s" id="s4">
+                 <label for="s4">S</label>
+                 
+                 <input type="radio" name="size" value="m" id="m4">
+                 <label for="m4">M</label>
+                 
+                 <input type="radio" name="size" value="l" id="l4">
+                 <label for="l4">L</label>
+                
+                 <input type="radio" name="size" value="xl" id="xl4">
+                 <label for="xl4">XL</label>
+                 </br>
+               </div>
+               </form>
+            </div>
+            <div class="column">
+              <img src="kid11.webp"  style="width:100%">
+              <form >
+                <label "><i style="font-size:30px; color:rgb(57, 121, 248)">price <del>120$</del> </i>
+                  <em style="font-size:20px; color:rgb(243, 113, 113)"> 99$ (for limited time)</em> </label><br>
+                 <div class="radio-toolbar">
+
+                 <input type="radio" name="size" value="xs" id="xs5k">
+                 <label for="xs5k">XS</label>
+                 
+                 <input type="radio" name="size" value="s" id="s5k">
+                 <label for="s5k">S</label>
+                 
+                 <input type="radio" name="size" value="m" id="m5k">
+                 <label for="m5k">M</label>
+                 
+                 <input type="radio" name="size" value="l" id="l5k">
+                 <label for="l5k">L</label>
+                
+                 <input type="radio" name="size" value="xl" id="xl5k">
+                 <label for="xl5k">XL</label>
+                 </br>
+               </div>
+               </form>
+            </div>
+            <div class="column">
+              <img src="kid6.webp"  style="width:100%">
+              <form >
+                <label "><i style="font-size:30px; color:rgb(57, 121, 248)">price <del>120$</del> </i>
+                  <em style="font-size:20px; color:rgb(243, 113, 113)"> 99$ (for limited time)</em> </label><br>
+                 <div class="radio-toolbar">
+
+                 <input type="radio" name="size" value="xs" id="xs6k">
+                 <label for="xs6k">XS</label>
+                 
+                 <input type="radio" name="size" value="s" id="s6k">
+                 <label for="s6k">S</label>
+                 
+                 <input type="radio" name="size" value="m" id="m6k">
+                 <label for="m6k">M</label>
+                 
+                 <input type="radio" name="size" value="l" id="l6k">
+                 <label for="l6k">L</label>
+                
+                 <input type="radio" name="size" value="xl" id="xl6k">
+                 <label for="xl6k">XL</label>
+                 </br>
+               </div>
+               </form>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column">
+              <img src="kid7.webp"  style="width:100%">
+              <form >
+                <label "><i style="font-size:30px; color:rgb(57, 121, 248)">price <del>120$</del> </i>
+                  <em style="font-size:20px; color:rgb(243, 113, 113)"> 99$ (for limited time)</em> </label><br>
+                 <div class="radio-toolbar">
+
+                 <input type="radio" name="size" value="xs" id="xs7k">
+                 <label for="xs7k">XS</label>
+                 
+                 <input type="radio" name="size" value="s" id="s7k">
+                 <label for="s7k">S</label>
+                 
+                 <input type="radio" name="size" value="m" id="m7k">
+                 <label for="m7k">M</label>
+                 
+                 <input type="radio" name="size" value="l" id="l7k">
+                 <label for="l7k">L</label>
+                
+                 <input type="radio" name="size" value="xl" id="xl7k">
+                 <label for="xl7k">XL</label>
+                 </br>
+               </div>
+               </form>
+            </div>
+            <div class="column">
+              <img src="kid8.webp"  style="width:100%">
+              <form >
+                <label "><i style="font-size:30px; color:rgb(57, 121, 248)">price <del>120$</del> </i>
+                  <em style="font-size:20px; color:rgb(243, 113, 113)"> 99$ (for limited time)</em> </label><br>
+                 <div class="radio-toolbar">
+
+                 <input type="radio" name="size" value="xs" id="xs8k">
+                 <label for="xs8k">XS</label>
+                 
+                 <input type="radio" name="size" value="s" id="s8k">
+                 <label for="s8k">S</label>
+                 
+                 <input type="radio" name="size" value="m" id="m8k">
+                 <label for="m8k">M</label>
+                 
+                 <input type="radio" name="size" value="l" id="l8k">
+                 <label for="l8k">L</label>
+                
+                 <input type="radio" name="size" value="xl" id="xl8k">
+                 <label for="xl8k">XL</label>
+                 </br>
+               </div>
+               </form>
+            </div>
+            <div class="column">
+              <img src="kid9.webp"  style="width:100%">
+              <form >
+                <label "><i style="font-size:30px; color:rgb(57, 121, 248)">price <del>120$</del> </i>
+                  <em style="font-size:20px; color:rgb(243, 113, 113)"> 99$ (for limited time)</em> </label><br>
+                 <div class="radio-toolbar">
+
+                 <input type="radio" name="size" value="xs" id="xs9k">
+                 <label for="xs9k">XS</label>
+                 
+                 <input type="radio" name="size" value="s" id="s9k">
+                 <label for="s9k">S</label>
+                 
+                 <input type="radio" name="size" value="m" id="m9k">
+                 <label for="m9k">M</label>
+                 
+                 <input type="radio" name="size" value="l" id="l9k">
+                 <label for="l9k">L</label>
+                
+                 <input type="radio" name="size" value="xl" id="xl9k">
+                 <label for="xl9k">XL</label>
+                 </br>
+               </div>
+               </form>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column">
+            <img src="kid10.webp"  style="width:100%">
+            <form >
+                <label "><i style="font-size:30px; color:rgb(57, 121, 248)">price <del>120$</del> </i>
+                  <em style="font-size:20px; color:rgb(243, 113, 113)"> 99$ (for limited time)</em> </label><br>
+                 <div class="radio-toolbar">
+
+                 <input type="radio" name="size" value="xs" id="xs10k">
+                 <label for="xs10k">XS</label>
+                 
+                 <input type="radio" name="size" value="s" id="s10k">
+                 <label for="s10k">S</label>
+                 
+                 <input type="radio" name="size" value="m" id="m10k">
+                 <label for="m10k">M</label>
+                 
+                 <input type="radio" name="size" value="l" id="l10k">
+                 <label for="l10k">L</label>
+                
+                 <input type="radio" name="size" value="xl" id="xl10k">
+                 <label for="xl10k">XL</label>
+                 </br>
+               </div>
+               </form>
+          </div>
+          <div class="column">
+            <img src="kid1.webp"  style="width:100%">
+            <form >
+                <label "><i style="font-size:30px; color:rgb(57, 121, 248)">price <del>120$</del> </i>
+                  <em style="font-size:20px; color:rgb(243, 113, 113)"> 99$ (for limited time)</em> </label><br>
+                 <div class="radio-toolbar">
+
+                 <input type="radio" name="size" value="xs" id="xs11">
+                 <label for="xs11">XS</label>
+                 
+                 <input type="radio" name="size" value="s" id="s11">
+                 <label for="s11">S</label>
+                 
+                 <input type="radio" name="size" value="m" id="m1">
+                 <label for="m11">M</label>
+                 
+                 <input type="radio" name="size" value="l" id="l11">
+                 <label for="l11">L</label>
+                
+                 <input type="radio" name="size" value="xl" id="xl11">
+                 <label for="xl11">XL</label>
+                 </br>
+               </div>
+               </form>
+          </div>
+          <div class="column">
+            <img src="kid2.webp"  style="width:100%">
+            <form >
+                <label "><i style="font-size:30px; color:rgb(57, 121, 248)">price <del>120$</del> </i>
+                  <em style="font-size:20px; color:rgb(243, 113, 113)"> 99$ (for limited time)</em> </label><br>
+                 <div class="radio-toolbar">
+
+                 <input type="radio" name="size" value="xs" id="xs12">
+                 <label for="xs12">XS</label>
+                 
+                 <input type="radio" name="size" value="s" id="s12">
+                 <label for="s12">S</label>
+                 
+                 <input type="radio" name="size" value="m" id="m12">
+                 <label for="m12">M</label>
+                 
+                 <input type="radio" name="size" value="l" id="l12">
+                 <label for="l12">L</label>
+                
+                 <input type="radio" name="size" value="xl" id="xl12">
+                 <label for="xl12">XL</label>
+                 </br>
+               </div>
+               </form>
+          </div>
+        </div>
+        <div class="row">
+            <div class="column">
+              <img src="kid13.webp"  style="width:100%">
+              <form >
+                <label "><i style="font-size:30px; color:rgb(57, 121, 248)">price <del>120$</del> </i>
+                  <em style="font-size:20px; color:rgb(243, 113, 113)"> 99$ (for limited time)</em> </label><br>
+                 <div class="radio-toolbar">
+
+                 <input type="radio" name="size" value="xs" id="xs13">
+                 <label for="xs13">XS</label>
+                 
+                 <input type="radio" name="size" value="s" id="s13">
+                 <label for="s13">S</label>
+                 
+                 <input type="radio" name="size" value="m" id="m13">
+                 <label for="m13">M</label>
+                 
+                 <input type="radio" name="size" value="l" id="l13">
+                 <label for="l13">L</label>
+                
+                 <input type="radio" name="size" value="xl" id="xl13">
+                 <label for="xl13">XL</label>
+                 </br>
+               </div>
+               </form>
+            </div>
+            <div class="column">
+              <img src="kid14.webp"  style="width:100%">
+              <form >
+                <label "><i style="font-size:30px; color:rgb(57, 121, 248)">price <del>120$</del> </i>
+                  <em style="font-size:20px; color:rgb(243, 113, 113)"> 99$ (for limited time)</em> </label><br>
+                 <div class="radio-toolbar">
+
+                 <input type="radio" name="size" value="xs" id="xs14">
+                 <label for="xs14">XS</label>
+                 
+                 <input type="radio" name="size" value="s" id="s14">
+                 <label for="s14">S</label>
+                 
+                 <input type="radio" name="size" value="m" id="m14">
+                 <label for="m14">M</label>
+                 
+                 <input type="radio" name="size" value="l" id="l14">
+                 <label for="l14">L</label>
+                
+                 <input type="radio" name="size" value="xl" id="xl14">
+                 <label for="xl14">XL</label>
+                 </br>
+               </div>
+               </form>
+            </div>
+            <div class="column">
+              <img src="kid5.webp"  style="width:100%">
+              <form >
+                <label "><i style="font-size:30px; color:rgb(57, 121, 248)">price <del>120$</del> </i>
+                  <em style="font-size:20px; color:rgb(243, 113, 113)"> 99$ (for limited time)</em> </label><br>
+                 <div class="radio-toolbar">
+
+                 <input type="radio" name="size" value="xs" id="xs15">
+                 <label for="xs15">XS</label>
+                 
+                 <input type="radio" name="size" value="s" id="s15">
+                 <label for="s15">S</label>
+                 
+                 <input type="radio" name="size" value="m" id="m15">
+                 <label for="m15">M</label>
+                 
+                 <input type="radio" name="size" value="l" id="l15">
+                 <label for="l15">L</label>
+                
+                 <input type="radio" name="size" value="xl" id="xl15">
+                 <label for="xl15">XL</label>
+                 </br>
+               </div>
+               </form>
+            </div>
+          </div>
+    </div>
+    <center><div>
+      <a href="www.facebook.com" class="fa fa-facebook"></a>
+      <a href="www.twitter.com" class="fa fa-twitter"></a>
+      <a href="www.google.com" class="fa fa-google"></a>
+      <a href="www.linkedin.com" class="fa fa-linkedin"></a>
+      <a href="www.youtube.com" class="fa fa-youtube"></a>
+      <a href="www.instagram.com" class="fa fa-instagram"></a>
+          </div> </center> 
+</body>
+
+</html>
