@@ -9,6 +9,7 @@
             background-size: cover;
             max-height: 100%;
             background-position: center;
+            background-attachment: fixed;
            
         }
 
@@ -131,9 +132,22 @@
                 background-color: rgb(230, 191, 19);
                 color: black;
             }
+            #message {
+            bottom:60%;
+            left:70%;
+            display: none;
+            background: transparent;
+            color: rgb(244, 244, 12);
+            position: absolute;
+            padding-top: 0%;
+            margin-top: 6px;
+            text-align: center;
         }
 
-        @media (min-height:800px) {
+
+        }
+
+        @media (min-height:700px) {
 
             body {
 
@@ -147,34 +161,58 @@
                 left: 37%;
 
             }
-            #message{
-            bottom:0%;
-            left: 30%;
+            #message {
+            bottom: 45%;
+            left:70%;
             display: none;
             background: transparent;
             color: rgb(244, 244, 12);
             position: absolute;
-            padding-bottom: 10%;
+            padding-top: 0%;
             margin-top: 6px;
             text-align: center;
+        }
 
-            }
-            #message p {
-            padding: 15px 30px;
+        #message2 {
+            bottom:40%;
+            left:30%;
+            display: none;
+            background: transparent;
+            color: rgb(244, 244, 12);
+            position: absolute;
+            padding-top: 0%;
+            margin-top: 6px;
+            text-align: center;
+        }
+
+        #message2 p {
+            padding: 10px 35px;
             font-size: 18px;
         }
-        #message2{
-            bottom:35%;
-            left: 35%;
+
+        #message3 {
+            bottom: 40%;
+            left:39%;
+            display: none;
+            background: transparent;
+            color: rgb(244, 244, 12);
             position: absolute;
+            padding-top: 0%;
+            margin-top: 6px;
+            text-align: center;
         }
-        #message3{
-            bottom:40%;
-            left: 32%;
-            position: absolute;
+
+        #message3 p {
+            padding: 10px 35px;
+            font-size: 18px;
         }
-        
+
+        #message p {
+            padding: 10px 35px;
+            font-size: 18px;
         }
+        }
+
     </style>
 
 </head>
@@ -201,7 +239,7 @@
             <label class="label">Email :</label><br />
             <input type="email" id="mail" name="mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Email must contain @" required /><br>
             <label class="label">Password :</label><br />
-            <input type="password" id="psw" name="psw"  pattern="^(?=.[A-Z]+[a-zA-Z])(+=.[0-9])(?!.* )(?=.[!@#$%^&_=+-]).{8}$" title="Must contain at least one number and one uppercase and lowercase letter,
+            <input type="password" id="psw" name="psw"  pattern="^(?=.*[a-z]{1,})(?=.*[A-Z]{1,})(?=.*[0-9]{1,})(?!.* )(?=.*[!@#\$%\^&\*]{1,}).{8,}$" title="Must contain at least one number and one uppercase and lowercase letter,
              and at least 8 or more characters , one special character "  maxlength="8" required><br />
             <label class="label">Phone Number :</label><br />
             <input type="phone" id="phone" name="phone" pattern="(?<!\d)\d{11}(?!\d)" maxlength="11" required><br>
