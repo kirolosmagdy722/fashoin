@@ -9,7 +9,7 @@
             background-size: cover;
             max-height: 100%;
             background-position: center;
-            background-attachment: fixed;
+           
         }
 
         .f {
@@ -138,7 +138,7 @@
             body {
 
                 background-position: center;
-
+                background-attachment: fixed;
             }
 
             .f {
@@ -173,6 +173,7 @@
             left: 32%;
             position: absolute;
         }
+        
         }
     </style>
 
@@ -192,34 +193,30 @@
         </div>
 
         <div class="f">
-            <form method="post" onsubmit="validate();" target="_blank">
-                <label>First name:</label><br>
-                <input type="text" required><br>
-                <label>Last name:</label><br>
-                <input type="text" required><br>
-                <label>Email</label><br>
-                <input type="email" id="emailo" name="emailo" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-                    placeholder="username@gmail.com" title="Email must contain @" required><br>
-                <label>password</label><br>
-                <input type="password" id="psw" name="psw"
-                    pattern="^(?=.[A-Z]+[a-zA-Z])(+=.[0-9])(?!.* )(+=.[!@#$%^*&_=+-]).{8}$" title="Must contain at least one number and one uppercase and lowercase letter,
-                and at least 8 or more characters , one special character " maxlength="8" required/><br />
-                <label>phone number</label><br> 
-                <input type="tel" id="mobilo" name="mobilo" pattern="(?<!\d)\d{11}(?!\d)" maxlength="11" required><br>
-                <label>adress</label> <br>
-                <input type="address" required><br>
-
-                <label> gender</label><br>
-                <label>Male</label>
-                <input type="radio" name="gender" value="male" id="male">
-                <label>Female</label>
-                <input type="radio" name="gender" value="female" id="female"><br>
-                <input type="submit" formvalidate="formvalidate" value="sumbit">
-                <a href="home.html"><input type="submit" formnovalidate="formnovalidate" value="Skip"></a>
+            <form  onsubmit="validate();" target="_blank" name="myForm">
+            <label class="label">First Name :</label><br />
+            <input type="text"id="name" name="fname" required /><br />
+            <label class="label">Last Name :</label><br />
+            <input type="text" name="fname" required /><br />
+            <label class="label">Email :</label><br />
+            <input type="email" id="mail" name="mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Email must contain @" required /><br>
+            <label class="label">Password :</label><br />
+            <input type="password" id="psw" name="psw"  pattern="^(?=.[A-Z]+[a-zA-Z])(+=.[0-9])(?!.* )(?=.[!@#$%^&_=+-]).{8}$" title="Must contain at least one number and one uppercase and lowercase letter,
+             and at least 8 or more characters , one special character "  maxlength="8" required><br />
+            <label class="label">Phone Number :</label><br />
+            <input type="phone" id="phone" name="phone" pattern="(?<!\d)\d{11}(?!\d)" maxlength="11" required><br>
+            <label class="label">Address :</label><br />
+            <input type="address" required /><br />
+            <label class="label">gender : </label> <br />
+            <label class="label">Male</label>
+            <input type="radio" id="male" name="gender" value="male" required />
+            <label class="label">Female</label>
+            <input type="radio" id="female" name="gender" value="female" required /><br /><br />
+            <input style="font-size: 15px" type="submit" formvalidate="formvalidate" value="sumbit"/>
+            <input style="font-size: 15px" type="submit" value="skip" onclick="myFunction2()" target="_self">
             </form>
-
-        </div>
-        <div id="message">
+          </div>
+          <div id="message">
             <h3>Password must contain the following:</h3>
             <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
             <p id="capital" class="invalid">begins with <b>capital (uppercase)</b> letter</p>
@@ -227,177 +224,170 @@
             <p id="length" class="invalid"><b>must be 8 characters</b></p>
             <p id="special" class="invalid">A <b>Special Character</b></p>
             <p id="white" class="invalid">without white space</b></p>
-        </div>
-        <div id="message2">
-            <h3>Email must contain the following:</h3>
-            <p id="at" class="invalid"><b>Email in right form</b></p>
-        </div>
-        <div id="message3">
-            <h3>mobile number must contain the following:</h3>
-            <p id="digitscheck" class="invalid"><b>11 Digits </b></p>
-        </div>
-    </div>
-    <script>
-        //email conditions
-        var mymail = document.getElementById("emailo");
-        var at = document.getElementById("at")
-        //mobile phone conditions
-        var myphone = document.getElementById("mobilo");
-        var digitscheck = document.getElementById("digitscheck");
-        var myInput = document.getElementById("psw");
-        var letter = document.getElementById("letter");
-        var capital = document.getElementById("capital");
-        var number = document.getElementById("number");
-        var length = document.getElementById("length");
-        var special = document.getElementById("special");
-        var white = document.getElementById("white");
-        var lowerCaseLetters = /[a-z]/g;
-        var upperCaseLetters = /[A-Z]/;
-        var numbers = /[0-9]/g;
-        var speciall = /[!@#$%^&*_=+-]/g;
-        var space = /[ ]/g;
-        var numbers = /[0-9]/g;
-        var upperCaseLetters = /[A-Z]/;
-        var lowerCaseLetters = /[a-z]/g;
-        var speciall = /[!@#$%^&*_=+-]/g;
-        var checkmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-
-
-
-
-
-        // When the user clicks on the password field, show the message box
-        myInput.onfocus = function () {
-            document.getElementById("message").style.display = "block";
-        }
-
-        // When the user clicks outside of the password field, hide the message box
-        myInput.onblur = function () {
-            document.getElementById("message").style.display = "none";
-        }
-
-        // When the user starts to type something inside the password field
-        myInput.onkeyup = function () {
-            // Validate lowercase letters
-
-            if (myInput.value.match(lowerCaseLetters)) {
+          </div>
+        
+          <div id="message2">
+            <h3>Phone Number must contain the following:</h3>
+            <p id="length2" class="invalid">Must be <b>11 digits</b></p>
+          </div>
+        
+          <div id="message3">
+            <h3>Notice that </h3>
+            <p id="mails" class="invalid"><b>Email </b>is valid</p>
+          </div>
+          <script>
+            function myFunction2() {
+              window.location.href = "home.html";
+        
+            }
+          
+            var myInput = document.getElementById("psw");
+            var letter = document.getElementById("letter");
+            var capital = document.getElementById("capital");
+            var number = document.getElementById("number");
+            var length = document.getElementById("length");
+            var special = document.getElementById("special");
+            var white = document.getElementById("white");
+            var lowerCaseLetters = /[a-z]/g;
+            var upperCaseLetters = /[A-Z]/;
+            var numbers = /[0-9]/g;
+            var speciall = /[!@#$%^&*_=+-]/g;
+            var space = /[ ]/g;
+            
+            
+            
+            // When the user clicks on the password field, show the message box
+            myInput.onfocus = function () {
+              document.getElementById("message").style.display = "block";
+            }
+        
+            // When the user clicks outside of the password field, hide the message box
+            myInput.onblur = function () {
+              document.getElementById("message").style.display = "none";
+            }
+        
+            // When the user starts to type something inside the password field
+            myInput.onkeyup = function () {
+              // Validate lowercase letters
+             
+              if (myInput.value.match(lowerCaseLetters)) {
                 letter.classList.remove("invalid");
                 letter.classList.add("valid");
-            } else {
+              } else {
                 letter.classList.remove("valid");
                 letter.classList.add("invalid");
-            }
-
-            // Validate capital letters
-
-            if (myInput.value.charAt(0) === myInput.value.charAt(0).toUpperCase()) {
+              }
+        
+              // Validate capital letters
+              
+              if (myInput.value.charAt(0) === myInput.value.charAt(0).toUpperCase()) {
                 capital.classList.remove("invalid");
                 capital.classList.add("valid");
-            } else {
+              } else {
                 capital.classList.remove("valid");
                 capital.classList.add("invalid");
-            }
-
-            // Validate numbers
-
-            if (myInput.value.match(numbers)) {
+              }
+        
+              // Validate numbers
+              
+              if (myInput.value.match(numbers)) {
                 number.classList.remove("invalid");
                 number.classList.add("valid");
-            } else {
+              } else {
                 number.classList.remove("valid");
                 number.classList.add("invalid");
-            }
-
-            // Validate length
-            if (myInput.value.length == 8) {
+              }
+        
+              // Validate length
+              if (myInput.value.length == 8) {
                 length.classList.remove("invalid");
                 length.classList.add("valid");
-            } else {
+              } else {
                 length.classList.remove("valid");
                 length.classList.add("invalid");
-            }
-            //validate a special charcter 
-
-            if (myInput.value.match(speciall)) {
+              }
+              //validate a special charcter 
+              
+              if (myInput.value.match(speciall)) {
                 special.classList.remove("invalid");
                 special.classList.add("valid");
-            } else {
+              } else {
                 special.classList.remove("valid");
                 special.classList.add("invalid");
-            }
-            //validate a white space free 
-
-            if (myInput.value.match(space)) {
+              }
+              //validate a white space free 
+              
+              if (myInput.value.match(space)) {
                 white.classList.remove("valid");
                 white.classList.add("invalid");
-            } else {
+              } else {
                 white.classList.remove("invalid");
                 white.classList.add("valid");
+              }
             }
-        }
-        // When the user clicks on the email field, show the message box
-        mymail.onfocus = function () {
-            document.getElementById("message2").style.display = "block";
-        }
-
-        // When the user clicks outside of the email field, hide the message box
-        mymail.onblur = function () {
-            document.getElementById("message2").style.display = "none";
-        }
-
-        // When the user starts to type something inside the email field
-        mymail.onkeyup = function () {
-            //verfiy the email in correct form
-
-            if (mymail.value.match(checkmail)) {
-                at.classList.remove("invalid");
-                at.classList.add("valid");
+            var myInput2 = document.getElementById("phone");
+            var length2 = document.getElementById("length2");
+        
+            // When the user clicks on the phone number field, show the message box
+            myInput2.onfocus = function () {
+              document.getElementById("message2").style.display = "block";
             }
-            else {
-                at.classList.remove("valid");
-                at.classList.add("invalid");
+        
+            // When the user clicks outside of the phone number field, hide the message box
+            myInput2.onblur = function () {
+              document.getElementById("message2").style.display = "none";
             }
-
-        }
-        // When the user clicks on the phone field, show the message box
-        myphone.onfocus = function () {
-            document.getElementById("message3").style.display = "block";
-        }
-
-        // When the user clicks outside of the phone field, hide the message box
-        myphone.onblur = function () {
-            document.getElementById("message3").style.display = "none";
-        }
-
-        // When the user starts to type something inside the phone field
-        myphone.onkeyup = function () {
-            //verfiy the phone is 11 digit
-
-            if (myphone.value.length == 11) {
-                digitscheck.classList.remove("invalid");
-                digitscheck.classList.add("valid");
+        
+            // When the user starts to type something inside the phone number field
+            myInput2.onkeyup = function () {
+              // Validate length
+              if (myInput2.value.length == 11) {
+                length2.classList.remove("invalid");
+                length2.classList.add("valid");
+              } else {
+                length2.classList.remove("valid");
+                length2.classList.add("invalid");
+              }
             }
-            else {
-                digitscheck.classList.remove("valid");
-                digitscheck.classList.add("invalid");
+            var myInput3 = document.getElementById("mail");
+            var mails = document.getElementById("mails");
+            var mail_format = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
+            
+            // When the user clicks on the Email field, show the message box
+            myInput3.onfocus = function () {
+              document.getElementById("message3").style.display = "block";
             }
-
-        }
-        function validate() {
-
-            if (myphone.value.length == 11 && mymail.value.match(checkmail) && myInput.value.match(space) &&
-                myInput.value.match(speciall) && myInput.value.length == 8 && myInput.value.match(numbers) && myInput.value.charAt(0) === myInput.value.charAt(0).toUpperCase()
-                && myInput.value.match(lowerCaseLetters)) {
-
-
+        
+            // When the user clicks outside of the Email field, hide the message box
+            myInput3.onblur = function () {
+              document.getElementById("message3").style.display = "none";
             }
-            else {
-                window.location.href = "home.html";
+        
+            // When the user starts to type something inside the Email field
+            myInput3.onkeyup = function () {
+              // Validate email
+              
+              if (myInput3.value.match(mail_format)) {
+                mails.classList.remove("invalid");
+                mails.classList.add("valid");
+              } else {
+                mails.classList.remove("valid");
+                mails.classList.add("invalid");
+              }
             }
-
-        }
-
-    </script>
+            function validate() {
+                    if (myInput2.value.length == 11 && myInput3.value.match(mail_format) && myInput.value.match(space) &&
+                    myInput.value.match(speciall) && myInput.value.length == 8 && myInput.value.match(numbers) && myInput.value.charAt(0) === myInput.value.charAt(0).toUpperCase()
+                    && myInput.value.match(lowerCaseLetters)) {
+                       
+                        
+                    }
+                    else{
+                        window.location.href="home.html";
+                    }
+        
+                }
+          </script>
 </body>
 
 </html>
