@@ -132,8 +132,24 @@
                 background-color: rgb(230, 191, 19);
                 color: black;
             }
+        }
+
+        @media (min-height:800px) {
+
+            body {
+
+                background-position: center;
+                background-attachment: fixed;
+            }
+
+            .f {
+                position: absolute;
+                top: 30%;
+                left: 37%;
+
+            }
             #message {
-            bottom:60%;
+            bottom: 60%;
             left:70%;
             display: none;
             background: transparent;
@@ -142,11 +158,11 @@
             padding-top: 0%;
             margin-top: 6px;
             text-align: center;
-            }
+        }
 
         #message2 {
-            bottom:40%;
-            left:30%;
+            bottom:0%;
+            left:50%;
             display: none;
             background: transparent;
             color: rgb(244, 244, 12);
@@ -162,8 +178,8 @@
         }
 
         #message3 {
-            bottom: 40%;
-            left:39%;
+            bottom: 0%;
+            left:50%;
             display: none;
             background: transparent;
             color: rgb(244, 244, 12);
@@ -183,27 +199,6 @@
             font-size: 18px;
         }
         }
-
-
-        }
-
-        @media (min-height:700px) {
-
-            body {
-
-                background-position: center;
-                background-attachment: fixed;
-            }
-
-            .f {
-                position: absolute;
-                top: 30%;
-                left: 37%;
-
-            }
-
-        }
-
     </style>
 
 </head>
