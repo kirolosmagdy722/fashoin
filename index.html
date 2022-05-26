@@ -1,10 +1,5 @@
 <!DOCTYPE html>
 <html>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
 
 <head>
     <style>
@@ -152,7 +147,7 @@
                 left: 37%;
 
             }
-                        #message{
+            #message{
             bottom:0%;
             left: 30%;
             display: none;
@@ -207,10 +202,10 @@
                     placeholder="username@gmail.com" title="Email must contain @" required><br>
                 <label>password</label><br>
                 <input type="password" id="psw" name="psw"
-                    pattern="^(?=.[A-Z]+[a-zA-Z])(+=.[0-9])(+!.* )(+=.[!@#$%*^&_=+-]).{8}$" maxlength="8"
-                    required></br>
-                <label>phone number</label><br>
-                <input type="tel" id="mobilo" name="mobilo" pattern="(?<!\d)\d{11}(?!\d)" required><br>
+                    pattern="^(?=.[A-Z]+[a-zA-Z])(+=.[0-9])(?!.* )(+=.[!@#$%^*&_=+-]).{8}$" title="Must contain at least one number and one uppercase and lowercase letter,
+                and at least 8 or more characters , one special character " maxlength="8" required/><br />
+                <label>phone number</label><br> 
+                <input type="tel" id="mobilo" name="mobilo" pattern="(?<!\d)\d{11}(?!\d)" maxlength="11" required><br>
                 <label>adress</label> <br>
                 <input type="address" required><br>
 
@@ -219,8 +214,8 @@
                 <input type="radio" name="gender" value="male" id="male">
                 <label>Female</label>
                 <input type="radio" name="gender" value="female" id="female"><br>
-                <input type="submit" formvalidate="formvalidate" value="sumbit" >
-                <a href="home.html" ><input type="submit" formnovalidate="formnovalidate" value="Skip"></a>
+                <input type="submit" formvalidate="formvalidate" value="sumbit">
+                <a href="home.html"><input type="submit" formnovalidate="formnovalidate" value="Skip"></a>
             </form>
 
         </div>
@@ -243,7 +238,12 @@
         </div>
     </div>
     <script>
-        //password conditions
+        //email conditions
+        var mymail = document.getElementById("emailo");
+        var at = document.getElementById("at")
+        //mobile phone conditions
+        var myphone = document.getElementById("mobilo");
+        var digitscheck = document.getElementById("digitscheck");
         var myInput = document.getElementById("psw");
         var letter = document.getElementById("letter");
         var capital = document.getElementById("capital");
@@ -251,18 +251,19 @@
         var length = document.getElementById("length");
         var special = document.getElementById("special");
         var white = document.getElementById("white");
-        //email conditions
-        var mymail = document.getElementById("emailo");
-        var at = document.getElementById("at")
-        //mobile phone conditions
-        var myphone = document.getElementById("mobilo");
-        var digitscheck = document.getElementById("digitscheck");
-        var checkmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         var lowerCaseLetters = /[a-z]/g;
         var upperCaseLetters = /[A-Z]/;
         var numbers = /[0-9]/g;
-        var space = /[ ]/g;
         var speciall = /[!@#$%^&*_=+-]/g;
+        var space = /[ ]/g;
+        var numbers = /[0-9]/g;
+        var upperCaseLetters = /[A-Z]/;
+        var lowerCaseLetters = /[a-z]/g;
+        var speciall = /[!@#$%^&*_=+-]/g;
+        var checkmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+
+
 
 
         // When the user clicks on the password field, show the message box
@@ -278,7 +279,7 @@
         // When the user starts to type something inside the password field
         myInput.onkeyup = function () {
             // Validate lowercase letters
-            
+
             if (myInput.value.match(lowerCaseLetters)) {
                 letter.classList.remove("invalid");
                 letter.classList.add("valid");
@@ -288,7 +289,7 @@
             }
 
             // Validate capital letters
-            
+
             if (myInput.value.charAt(0) === myInput.value.charAt(0).toUpperCase()) {
                 capital.classList.remove("invalid");
                 capital.classList.add("valid");
@@ -298,7 +299,7 @@
             }
 
             // Validate numbers
-           
+
             if (myInput.value.match(numbers)) {
                 number.classList.remove("invalid");
                 number.classList.add("valid");
@@ -316,7 +317,7 @@
                 length.classList.add("invalid");
             }
             //validate a special charcter 
-          
+
             if (myInput.value.match(speciall)) {
                 special.classList.remove("invalid");
                 special.classList.add("valid");
@@ -325,7 +326,7 @@
                 special.classList.add("invalid");
             }
             //validate a white space free 
-            
+
             if (myInput.value.match(space)) {
                 white.classList.remove("valid");
                 white.classList.add("invalid");
@@ -347,7 +348,7 @@
         // When the user starts to type something inside the email field
         mymail.onkeyup = function () {
             //verfiy the email in correct form
-           
+
             if (mymail.value.match(checkmail)) {
                 at.classList.remove("invalid");
                 at.classList.add("valid");
@@ -383,14 +384,15 @@
 
         }
         function validate() {
+
             if (myphone.value.length == 11 && mymail.value.match(checkmail) && myInput.value.match(space) &&
-            myInput.value.match(speciall) && myInput.value.length == 8 && myInput.value.match(numbers) && myInput.value.charAt(0) === myInput.value.charAt(0).toUpperCase()
-            && myInput.value.match(lowerCaseLetters)) {
-               
-                
+                myInput.value.match(speciall) && myInput.value.length == 8 && myInput.value.match(numbers) && myInput.value.charAt(0) === myInput.value.charAt(0).toUpperCase()
+                && myInput.value.match(lowerCaseLetters)) {
+
+
             }
-            else{
-                window.location.href="home.html";
+            else {
+                window.location.href = "home.html";
             }
 
         }
